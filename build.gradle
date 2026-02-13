@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '4.0.2'
 	id 'io.spring.dependency-management' version '1.1.7'
-
+	id 'jacoco'
 	id 'checkstyle'
 	id("org.sonarqube") version '7.2.2.6593'
 }
@@ -45,4 +45,13 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport // Run JaCoCo after tests finish
+}
+
+jacocoTestReport {
+	dependsOn test // Tests must run before generating the report
+	reports {
+		xml.required = true // REQUIRED for SonarCloud
+		html.required = true // Optional: for you to view locally
+	}
 }
