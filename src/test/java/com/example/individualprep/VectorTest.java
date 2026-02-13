@@ -29,14 +29,13 @@ class VectorTest {
     }
     @Test
     void testAddDifferentLength() {
-            double[] v1 = {1.0, 2.0};
-            double[] v2 = {3.0};
+        double[] v1 = {1.0, 2.0};
+        double[] v2 = {3.0};
 
-            assertThrows(IllegalArgumentException.class, () -> vectorUtility.add(v1, v2));
+        assertThrows(IllegalArgumentException.class, () -> vectorUtility.add(v1, v2));
     }
-
     @Test
-    void testDotProductValidInput () {
+    void testDotProductValidInput() {
         double[] v1 = {1.0, 3.0, -5.0};
         double[] v2 = {4.0, -2.0, -1.0};
 
@@ -47,62 +46,63 @@ class VectorTest {
     }
 
     @Test
-    void testDotProductEmptyVectors () {
+    void testDotProductEmptyVectors() {
         double[] v1 = {};
         double[] v2 = {};
 
         assertEquals(0.0, vectorUtility.dotProduct(v1, v2), "Hasil harus 0.0");
     }
-    @DisplayName("Test multiplication of vector with positive scalar")
+    
     @Test
+    @DisplayName("Test multiplication of vector with positive scalar")
     void testMultiply() {
         double[] v1 = {1.0, 2.0, 3.0};
         int scalar = 3;
         double[] expected = {3.0, 6.0, 9.0};
 
-            double[] result = vectorUtility.multiply(v1, scalar);
+        double[] result = vectorUtility.multiply(v1, scalar);
 
-            assertArrayEquals(expected, result, "Setiap elemen harus dikalikan dengan 3");
-        }
+        assertArrayEquals(expected, result, "Setiap elemen harus dikalikan dengan 3");
+    }
 
-        @Test
-        @DisplayName("Test multiplication with negative scalar")
-        void testMultiplyNegative() {
-            double[] v1 = {1.0, -2.0, 4.0};
-            int scalar = -2;
-            double[] expected = {-2.0, 4.0, -8.0};
+    @Test
+    @DisplayName("Test multiplication with negative scalar")
+    void testMultiplyNegative() {
+        double[] v1 = {1.0, -2.0, 4.0};
+        int scalar = -2;
+        double[] expected = {-2.0, 4.0, -8.0};
 
-            assertArrayEquals(expected, vectorUtility.multiply(v1, scalar));
-        }
+        assertArrayEquals(expected, vectorUtility.multiply(v1, scalar));
+    }
 
-        @Test
-        @DisplayName("Test multiplication with zero scalar")
-        void testMultiplyZero() {
-            double[] v1 = {10.0, 20.0, 30.0};
-            int scalar = 0;
-            double[] expected = {0.0, 0.0, 0.0};
+    @Test
+    @DisplayName("Test multiplication with zero scalar")
+    void testMultiplyZero() {
+        double[] v1 = {10.0, 20.0, 30.0};
+        int scalar = 0;
+        double[] expected = {0.0, 0.0, 0.0};
 
-            assertArrayEquals(expected, vectorUtility.multiply(v1, scalar));
-        }
+        assertArrayEquals(expected, vectorUtility.multiply(v1, scalar));
+    }
 
 
-        @Test
-        void testDotProductDifferentLengths() {
-            double[] v1 = {1.0, 2.0};
-            double[] v2 = {1.0, 2.0, 3.0};
+    @Test
+    void testDotProductDifferentLengths() {
+        double[] v1 = {1.0, 2.0};
+        double[] v2 = {1.0, 2.0, 3.0};
 
-            Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-                vectorUtility.dotProduct(v1, v2);
-            });
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            vectorUtility.dotProduct(v1, v2);
+        });
 
-            assertEquals("Vectors must be of the same length.", exception.getMessage());
-        }
+        assertEquals("Vectors must be of the same length.", exception.getMessage());
+    }
 
-        @Test
-        void testDotProductWithZeros() {
-            double[] v1 = {0.0, 5.0};
-            double[] v2 = {10.0, 0.0};
+    @Test
+    void testDotProductWithZeros() {
+        double[] v1 = {0.0, 5.0};
+        double[] v2 = {10.0, 0.0};
 
-            assertEquals(0.0, vectorUtility.dotProduct(v1, v2), "Hasilnya seharusnya 0.0");
-        }
+        assertEquals(0.0, vectorUtility.dotProduct(v1, v2), "Hasilnya seharusnya 0.0");
+    }
 }
