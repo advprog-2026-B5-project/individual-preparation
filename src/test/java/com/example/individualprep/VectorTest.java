@@ -20,6 +20,12 @@ class VectorTest {
     }
 
     @Test
+    void testSubtract() {
+        double[] v1 = {5.0, 5.0};
+        double[] v2 = {2.0, 1.0};
+        double[] expected = {3.0, 4.0}; // (5-2, 5-1)
+
+        assertArrayEquals(expected, vectorUtility.subtract(v1, v2), "Vector subtraction result is incorrect");
     void testAddDifferentLength() {
         double[] v1 = {1.0, 2.0};
         double[] v2 = {3.0};
@@ -42,6 +48,8 @@ class VectorTest {
 
         assertEquals(0.0, vectorUtility.dotProduct(v1, v2), "Hasil harus 0.0");
     }
+    
+    @Test
     @DisplayName("Test multiplication of vector with positive scalar")
     void testMultiply() {
         double[] v1 = {1.0, 2.0, 3.0};
