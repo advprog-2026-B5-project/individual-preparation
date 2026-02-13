@@ -27,39 +27,38 @@ class VectorTest {
 
         assertArrayEquals(expected, vectorUtility.subtract(v1, v2), "Vector subtraction result is incorrect");
     }
-
     @Test
     void testAddDifferentLength() {
-        double[] v1 = {1.0, 2.0};
-        double[] v2 = {3.0};
+            double[] v1 = {1.0, 2.0};
+            double[] v2 = {3.0};
 
-        assertThrows(IllegalArgumentException.class, () -> vectorUtility.add(v1, v2));
+            assertThrows(IllegalArgumentException.class, () -> vectorUtility.add(v1, v2));
     }
 
     @Test
-    void testDotProductValidInput() {
-            double[] v1 = {1.0, 3.0, -5.0};
-            double[] v2 = {4.0, -2.0, -1.0};
+    void testDotProductValidInput () {
+        double[] v1 = {1.0, 3.0, -5.0};
+        double[] v2 = {4.0, -2.0, -1.0};
 
-            double expected = 3.0;
-            double actual = vectorUtility.dotProduct(v1, v2);
+        double expected = 3.0;
+        double actual = vectorUtility.dotProduct(v1, v2);
 
-            assertEquals(expected, actual, 0.0001, "Hasil salah");
-        }
+        assertEquals(expected, actual, 0.0001, "Hasil salah");
+    }
 
-        @Test
-        void testDotProductEmptyVectors() {
-            double[] v1 = {};
-            double[] v2 = {};
+    @Test
+    void testDotProductEmptyVectors () {
+        double[] v1 = {};
+        double[] v2 = {};
 
-            assertEquals(0.0, vectorUtility.dotProduct(v1, v2), "Hasil harus 0.0");
-        }
-        @DisplayName("Test multiplication of vector with positive scalar")
-        @Test
-        void testMultiply() {
-            double[] v1 = {1.0, 2.0, 3.0};
-            int scalar = 3;
-            double[] expected = {3.0, 6.0, 9.0};
+        assertEquals(0.0, vectorUtility.dotProduct(v1, v2), "Hasil harus 0.0");
+    }
+    @DisplayName("Test multiplication of vector with positive scalar")
+    @Test
+    void testMultiply() {
+        double[] v1 = {1.0, 2.0, 3.0};
+        int scalar = 3;
+        double[] expected = {3.0, 6.0, 9.0};
 
             double[] result = vectorUtility.multiply(v1, scalar);
 
