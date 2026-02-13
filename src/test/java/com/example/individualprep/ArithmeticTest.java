@@ -15,4 +15,16 @@ class ArithmeticTest {
         assertEquals(25.0, result);
     }
 
+    @Test
+    void testExponentNegative() {
+        double result = arithmeticUtility.exponent(-2.0, 3);
+        assertEquals(-8.0, result);
+    }
+
+    @Test
+    void testExponentZero() {
+        double result = arithmeticUtility.exponent(67.0, 0);
+        assertEquals(1.0, result);
+    }
+
 }
