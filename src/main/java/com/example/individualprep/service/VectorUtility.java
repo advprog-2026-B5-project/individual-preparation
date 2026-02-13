@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 public class VectorUtility {
     
     public double[] add(double[] v1, double[] v2) {
-        // TODO: Implement me properly!
+        if (v1.length != v2.length) {
+            throw new IllegalArgumentException("Vector lengths must be equal for addition.");
+        }
         int size = v1.length;
         double[] result = new double[size];
 
