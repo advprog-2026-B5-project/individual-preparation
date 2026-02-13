@@ -7,7 +7,13 @@ public class VectorUtility {
     
     public double[] add(double[] v1, double[] v2) {
         // TODO: Implement me properly!
-        return new double[] { 0.0, 0.0, 0.0 };
+        int size = v1.length;
+        double[] result = new double[size];
+
+        for (int col = 0; col<size; col++){
+            result[col] = v1[col] + v2[col];
+        }
+        return result;
     }
 
     public double[] subtract(double[] v1, double[] v2) {
