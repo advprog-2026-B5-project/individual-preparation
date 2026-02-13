@@ -19,5 +19,11 @@ class VectorTest {
         assertArrayEquals(new double[]{5.0, 7.0, 9.0}, result);
     }
 
+    @Test
+    void testAddDifferentLength() {
+        double[] v1 = {1.0, 2.0};
+        double[] v2 = {3.0};
 
+        assertThrows(IllegalArgumentException.class, () -> vectorUtility.add(v1, v2));
+    }
 }
