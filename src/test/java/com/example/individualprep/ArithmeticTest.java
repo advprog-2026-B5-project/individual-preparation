@@ -15,4 +15,10 @@ class ArithmeticTest {
         assertEquals(25.0, result);
     }
 
+    @Test
+    void testDivide() {
+        // Test basic division: 10 / 2 = 5
+        assertEquals(5.0, arithmeticUtility.divide(10.0, 2.0), "10 / 2 should equal 5");
+    }
+
 }
