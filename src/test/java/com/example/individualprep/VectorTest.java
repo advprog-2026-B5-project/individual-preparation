@@ -20,6 +20,11 @@ class VectorTest {
     }
 
     @Test
+    void testAddDifferentLength() {
+        double[] v1 = {1.0, 2.0};
+        double[] v2 = {3.0};
+
+        assertThrows(IllegalArgumentException.class, () -> vectorUtility.add(v1, v2));
     void testDotProductValidInput() {
         double[] v1 = {1.0, 3.0, -5.0};
         double[] v2 = {4.0, -2.0, -1.0};
