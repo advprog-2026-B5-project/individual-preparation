@@ -25,11 +25,11 @@ checkstyle {
 
 sonarqube {
 	properties {
-		property("sonar.projectKey", "advprog-2026-B5-project_individual-preparation")
-		property("sonar.organization", "advprog-2026-b5-project")
-		property("sonar.host.url", "https://sonarcloud.io")
-
-		property("sonar.qualitygate.wait", true)
+		property "sonar.projectKey", "advprog-2026-B5-project_individual-preparation"
+		property "sonar.organization", "advprog-2026-b5-project"
+		property "sonar.host.url", "https://sonarcloud.io"
+		// Memaksa CI gagal jika Quality Gate SonarCloud tidak lolos
+		property "sonar.qualitygate.wait", true
 	}
 }
 
