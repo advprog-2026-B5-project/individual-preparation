@@ -2,6 +2,8 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '4.0.2'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'checkstyle'
+	id("org.sonarqube") version '7.2.2.6593'
 }
 
 group = 'com.example'
@@ -11,6 +13,22 @@ description = 'Individual preparation for the Advanced Programming course at the
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+checkstyle {
+	toolVersion = "13.2.0"
+	// This ensures the build fails if the linter finds issues (Checklist Item 4)
+	maxWarnings = 0
+}
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "advprog-2026-B5-project_individual-preparation"
+		property "sonar.organization", "advprog-2026-b5-project"
+		property "sonar.host.url", "https://sonarcloud.io"
+		// Memaksa CI gagal jika Quality Gate SonarCloud tidak lolos
+		property "sonar.qualitygate.wait", true
 	}
 }
 
