@@ -37,6 +37,37 @@ class VectorTest {
 
         assertEquals(0.0, vectorUtility.dotProduct(v1, v2), "Hasil harus 0.0");
     }
+    @DisplayName("Test multiplication of vector with positive scalar")
+    void testMultiply() {
+        double[] v1 = {1.0, 2.0, 3.0};
+        int scalar = 3;
+        double[] expected = {3.0, 6.0, 9.0};
+
+        double[] result = vectorUtility.multiply(v1, scalar);
+
+        assertArrayEquals(expected, result, "Setiap elemen harus dikalikan dengan 3");
+    }
+
+    @Test
+    @DisplayName("Test multiplication with negative scalar")
+    void testMultiplyNegative() {
+        double[] v1 = {1.0, -2.0, 4.0};
+        int scalar = -2;
+        double[] expected = {-2.0, 4.0, -8.0};
+
+        assertArrayEquals(expected, vectorUtility.multiply(v1, scalar));
+    }
+
+    @Test
+    @DisplayName("Test multiplication with zero scalar")
+    void testMultiplyZero() {
+        double[] v1 = {10.0, 20.0, 30.0};
+        int scalar = 0;
+        double[] expected = {0.0, 0.0, 0.0};
+
+        assertArrayEquals(expected, vectorUtility.multiply(v1, scalar));
+    }
+
 
     @Test
     void testDotProductDifferentLengths() {
