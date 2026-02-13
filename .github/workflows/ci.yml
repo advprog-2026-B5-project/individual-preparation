@@ -2,7 +2,7 @@ name: Java CI with Gradle and SonarCloud
 
 on:
   push:
-    branches: [ "ci-cd/rehema", "main" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
