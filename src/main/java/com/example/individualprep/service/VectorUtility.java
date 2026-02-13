@@ -26,8 +26,14 @@ public class VectorUtility {
     }
 
     public double[] multiply(double[] v1, int x) {
-        // TODO: Implement me properly!
-        return new double[] { 0.0, 0.0, 0.0 };
+        // Multiplication of vector with scalar (v1 * x)
+        int size = v1.length;
+        double[] result = new double[size];
+
+        for(int column = 0; column<size; column++){
+            result[column] = v1[column] * x;
+        } return result;
+
     }
     
     public double dotProduct(double[] v1, double[] v2) {
